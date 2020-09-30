@@ -3,13 +3,14 @@
 import React from "react";
 import {useRouter} from "next/router";
 
-const id = () => {
+const Page = () => {
   const router =  useRouter()
-  const {id} = router.query
+  const {params} = router.query
+  console.log(params)
   return (
     <h1 className={"id"}>
-      note {id}
+      note
     </h1>
   )
 }
-export default id;
+export default Page;
