@@ -1,19 +1,25 @@
 //DATE : 10/1/20
 
-import React from "react";
+/** @jsx jsx */
+import { jsx } from "theme-ui";
 import Link from "next/link";
-import '../../src/components/style.module.css'
 
 const index = () => {
   return (
-    <div className={"index"}>
-      <h1>Index page</h1>
-      <Link href={"/notes"}>
-        <a>
-          note
-        </a>
-      </Link>
+    <div sx={{ height: `calc(100vh - 60px)` }}>
+      <div
+        sx={{
+          variant: "containers.page",
+          display: "flex",
+          alignItems: "center",
+          height: "100%",
+        }}
+      >
+        <h1 sx={{ fontSize: 8, my: 0 }}>
+          This is a really dope note taking app.
+        </h1>
+      </div>
     </div>
-  )
-}
+  );
+};
 export default index;
