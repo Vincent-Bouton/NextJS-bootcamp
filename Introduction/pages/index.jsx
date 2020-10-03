@@ -23,3 +23,9 @@ const index = () => {
   );
 };
 export default index;
+
+export function getStaticProps({ params }) {
+  return {
+    props: {},
+  };
+}
