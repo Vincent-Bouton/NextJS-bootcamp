@@ -3,6 +3,11 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import Link from "next/link";
+import dynamic from "next/dynamic";
+
+const BrowserComponent = dynamic(() => import("../src/components/browser"), {
+  ssr: false,
+});
 
 const index = ({ content }) => {
   return (
@@ -15,6 +20,7 @@ const index = ({ content }) => {
           height: "100%",
         }}
       >
+        <BrowserComponent />
         <h1 sx={{ fontSize: 8, my: 0 }}>{content.title}</h1>
       </div>
     </div>
