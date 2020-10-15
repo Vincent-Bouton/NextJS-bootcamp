@@ -1,6 +1,25 @@
 //DATE : 10/13/20
-import Head from "next/head";
+import fetch from "isomorphic-unfetch";
 
-export default function Home() {
-  return <h1>this is our front page</h1>;
+export default function Home({ movies }) {
+  console.log(movies);
+  return (
+    <div>
+      {movies.map((movie) => (
+        <div key={movie.id}>{movie.movie_title}</div>
+      ))}
+    </div>
+  );
+}
+
+export async function getServerSideProps(context) {
+  const { API_URL } = process.env;
+
+  const res = await fetch(`${API_URL}/movies`);
+  const data = await res.json();
+  return {
+    props: {
+      movies: data,
+    },
+  };
 }
